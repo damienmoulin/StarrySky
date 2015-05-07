@@ -1,0 +1,12 @@
+body{
+	background: #000;
+}
+.star{
+	background: #fff;
+	position: absolute;
+}
+.test{
+	background: red;
+	width: 100px;
+	height: 100px;
+}
