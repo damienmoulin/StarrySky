@@ -15,14 +15,13 @@
  <body>
  	<div class="sky"></div>
  	<div id="test"></div>
- 	<!-- <div class="star"></div> -->
 	<script>
 		var timeoutID;
 
 		 	function delayedAlert() {
-		 	  timeoutID = window.setTimeout(trucMuche, 20000);}
+		 	  timeoutID = window.setTimeout(trucMuche, 20000);} //Marche pas
 
-			for (var i=0; i<300; i++){ //boucle qui permet de générer 75 etoiles
+			for (var i=0; i<300; i++){ //boucle qui permet de générer i etoiles
 				var size = Math.floor(Math.random() * 6) + 1; // taille d'une div entre 6 et 1 px
 				console.log(size);
 
@@ -62,7 +61,7 @@
 			if (i=75) {var node = document.getElementById("test");
 				if (node.parentNode) {
 				  node.parentNode.removeChild(node);
-				}}
+				}} //Test pour remove une div
 	</script>
  </body>
  </html>
