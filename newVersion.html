@@ -1,0 +1,73 @@
+<!-- // 1 - création de divs 'etoiles' DONE
+// 2 - création de l'animation (sur un temps random) DONE
+// 3 - création du positionnement randoms DONE
+// 3.5 - création de nouveaux emplacements random pour chaque animation terminée TO DO
+// 4 - taille random DONE
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ 	<link rel="stylesheet" href="style.css">
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ </head>
+ <body>
+ 	<div class="sky"></div>
+ 	<div id="test"></div>
+	<script>
+
+				 
+
+			function Pos(){
+
+				var windowWidth = window.innerWidth //Récuperation taille horizontale du navigateur de l'utilisateur
+					document.documentElement.clientWidth
+					document.body.clientWidth;
+
+				var windowHeight = window.innerHeight //Récuperation taille verticale du navigateur de l'utilisateur
+					document.documentElement.clientHeight
+					document.body.clientHeight;
+
+				// taille d'une div entre 6 et 1 px
+				var size = Math.floor(Math.random() * 6) + 1;
+
+				// emplacemennt horizontal de la div
+				var posHor = Math.floor(Math.random() * windowWidth-10) + 1; 
+
+				// emplacemennt vertical de la div
+				var posVert = Math.floor(Math.random() * windowHeight-10) + 1;
+
+				// randomisation du fadeIn et Out
+				var app = Math.floor((Math.random() * 10) + 2)*1000; 
+
+				var newDiv = document.createElement("div");
+					newDiv.className = "star";
+					newDiv.style.background = "#fff";
+					newDiv.style.position = 'absolute';
+					newDiv.style.width = size + 'px';
+					newDiv.style.height = size + 'px';
+					newDiv.style.left = posHor + 'px';
+					newDiv.style.top = posVert + 'px';
+					$('.star').fadeIn(app);
+					$('.star').fadeOut(app);
+					document.body.appendChild(newDiv);
+					console.log($('.star').length);
+					if($('.star').length > 150){
+
+						var a = Math.floor(Math.random() *10);
+						//console.log($('.star')[a]);
+						//On supprime un element de class star aléatoire
+						// Possibilité d'appeller une fonction qui fait un changement d'opacité timé puis un removeChild pour que ça soit plus fluide
+						document.body.removeChild($('.star')[a]);
+					}
+					
+			}
+			Pos();
+			var timer = setInterval("Pos()", 100);
+
+			
+
+	</script>
+ </body>
+ </html>
